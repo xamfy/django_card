@@ -1,0 +1,168 @@
+.mynavbar li.nav-item {
+  padding-left: 30px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.mynavbar li a {
+  color: #3f4f62;
+}
+
+.mynavbar .navbar-brand {
+  font-size: 28px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+
+.site-img {
+  padding: 70px 0 70px 0;
+}
+
+.heading {
+  color: #3f4f62;
+  font-size: 45px;
+  font-family: "Montserrat";
+  margin-bottom: 50px;
+  margin-top: 60px;
+}
+
+.btn-demo {
+  color: white;
+  background: #3f4f62;
+  font-size: 16;
+  font-family: "Montserrat";
+  font-weight: bold;
+  padding: 13px 26px 13px 26px;
+  margin-right: 20px;
+  border-radius: 8px;
+  /* transition: all 0.2s; */
+  text-decoration: none !important;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.btn-demo:hover {
+  color: white;
+  /* background: none; */
+  /* border: 1px solid #3f4f62; */
+  /* color: #3f4f62; */
+  /* transition: all 0.2s; */
+}
+
+.btn-demo:active {
+  box-shadow: none;
+}
+
+.btn-basic {
+  font-family: "Montserrat";
+  font-weight: bold;
+  /* padding: 13px 26px 13px 26px; */
+  padding-left: 10px;
+  color: #3f4f62;
+  text-decoration: none !important;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  /* Margin bottom by footer height */
+}
+
+.footer {
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  /* Set the fixed height of the footer here */
+  line-height: 60px;
+  /* Vertically center the text there */
+  /* color: white !important; */
+  color: #3f4f62;
+  /* background-color: #3f4f62; */
+  font-family: "Montserrat";
+  font-weight: bold;
+  padding-top: 30px;
+  /* background-image: linear-gradient(-90deg, #485563 18%, #29323c 86%); */
+  /* background: linear-gradient(135deg, #65799b 0%, #5e2563 100%); */
+  /* background-image: linear-gradient(60deg, #29323c 0%, #485563 100%); */
+  /* margin: 0 auto; */
+  /* max-width: calc(100% - 192px); */
+  /* min-height: 350px; */
+  /* padding: 70px 0; */
+  position: relative;
+  /* Not required */
+}
+
+.copy-row a {
+  color: #3f4f62;
+  padding-left: 30px;
+  text-decoration: none !important;
+}
+.copy-row {
+  justify-content: center;
+}
+
+.pricing {
+  font-family: "Montserrat";
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-outline-primary:visited {
+  background-color: #3f4f62 !important;
+  /* background-color: white !important; */
+  border: none !important;
+  color: white;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.card {
+  /* background: linear-gradient(
+    to right,
+    rgba(218, 27, 96, 0.25),
+    rgba(255, 138, 0, 0.25)
+  ); */
+  /* background: #3f4f62;
+  color: white; */
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .checkbox {
+  font-weight: 400;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.modal .modal-dialog {
+  max-width: 340px !important;
+}
