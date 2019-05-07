@@ -16,10 +16,10 @@ class Category(models.Model):
 class Pic(models.Model):
 
     ROBOTO = 'Roboto'
-    ARIAL = 'Arial'
+    ZCOOL = 'ZCOOL'
     FONT_CHOICES = (
         (ROBOTO, 'Roboto'),
-        (ARIAL, 'Arial'),
+        (ZCOOL, 'ZCOOL'),
     )
 
     name = models.CharField(max_length=100)
@@ -39,6 +39,8 @@ class Pic(models.Model):
         choices=FONT_CHOICES,
         default=ROBOTO,
     )
+
+    size = models.IntegerField(default=10)
 
     def __str__(self):
         return self.name

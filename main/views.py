@@ -46,8 +46,13 @@ def edit(request, pic):
 
             draw = ImageDraw.Draw(image)
 
+            aux_font = 'main/static/fonts/'+str(pic.font)+'.ttf'
+            # print(aux_font)
+
             font = ImageFont.truetype(
-                'main/static/fonts/Roboto-Bold.ttf', size=45)
+                aux_font, size=pic.size)
+
+            print(font)
 
             (x, y) = (pic.x, pic.y)
 
