@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+from colorfield.fields import ColorField
 
 
 class Category(models.Model):
@@ -41,6 +40,7 @@ class Pic(models.Model):
     )
 
     size = models.IntegerField(default=10)
+    color = ColorField(default='#FF0000')
 
     def __str__(self):
         return self.name

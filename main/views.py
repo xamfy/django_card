@@ -58,9 +58,9 @@ def edit(request, pic):
 
             message = form.cleaned_data['name']
 
-            color = 'rgb(0, 0, 0)'  # black color
+            # color = 'rgb(0, 0, 0)'  # black color
 
-            draw.text((x, y), message, fill=color, font=font)
+            draw.text((x, y), message, fill=pic.color, font=font)
             image.save('media/generated/'+name+'.jpg')
             print(name)
 
