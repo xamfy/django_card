@@ -1,11 +1,18 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
 
 # 3rd party libraries
 from PIL import Image, ImageDraw, ImageFont
 
+from django.http import HttpResponseRedirect
+
 from .models import Pic, Category
+
+import secrets
+import string
+
+from main import forms
 
 
 class HomePageView(ListView):
@@ -29,13 +36,44 @@ class CategoryView(DetailView):
 
 
 def edit(request, pic):
+    if request.method == "POST":
+        form = forms.GenerateForm(request.POST)
+        pic = Pic.objects.filter(id=pic).first()
+        if form.is_valid():
+            name = ''.join(secrets.choice(string.ascii_uppercase + string.digits)
+                           for _ in range(10))
+            image = Image.open('media/'+str(pic.cover))
 
-    image = Pic.objects.filter(id=pic).first()
-    return render(request, "edit.html", {'image': image})
+            draw = ImageDraw.Draw(image)
+
+            font = ImageFont.truetype(
+                'main/static/fonts/Roboto-Bold.ttf', size=45)
+
+            (x, y) = (pic.x, pic.y)
+
+            message = form.cleaned_data['name']
+
+            color = 'rgb(0, 0, 0)'  # black color
+
+            draw.text((x, y), message, fill=color, font=font)
+            image.save('media/generated/'+name+'.jpg')
+            print(name)
+
+        form = forms.GenerateForm()
+        src = 'media/generated/'+name
+        # return reverse('generate', kwargs={'pic': name})
+        return HttpResponseRedirect(reverse('generate', kwargs={'pic': name}))
+
+    else:
+        image = Pic.objects.filter(id=pic).first()
+        form = forms.GenerateForm()
+        return render(request, "edit.html", {'form': form, 'image': image})
 
 
-def generate(request):
-    pass
+def generate(request, pic):
+    pic = '/media/generated/'+pic+'.jpg'
+    return render(request, "generated.html", {'src': pic})
+    # print(name)
     # print(temp.cover)
 
     # create Image object with the input image
