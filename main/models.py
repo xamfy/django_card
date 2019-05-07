@@ -9,13 +9,33 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name_plural = "categories"
 
-class Image(models.Model):
-    name = models.TextField()
+
+class Pic(models.Model):
+
+    ROBOTO = 'Roboto'
+    ARIAL = 'Arial'
+    FONT_CHOICES = (
+        (ROBOTO, 'Roboto'),
+        (ARIAL, 'Arial'),
+    )
+
+    name = models.CharField(max_length=100)
     cover = models.ImageField(upload_to='images/')
-    category = models.OneToOneField(
+
+    category = models.ForeignKey(
         Category,
         on_delete=models.DO_NOTHING,
+    )
+    x = models.IntegerField(default=0)
+    y = models.IntegerField(default=0)
+
+    font = models.CharField(
+        max_length=100,
+        choices=FONT_CHOICES,
+        default=ROBOTO,
     )
 
     def __str__(self):

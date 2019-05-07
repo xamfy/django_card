@@ -2,11 +2,16 @@ from django.shortcuts import render
 from PIL import Image, ImageDraw, ImageFont
 # Create your views here.
 
+from .models import Pic
+
 
 def test(request):
 
-        # create Image object with the input image
-    image = Image.open('media/images/download.jpeg')
+    temp = Pic.objects.all().first()
+    print(temp.cover)
+
+    # create Image object with the input image
+    image = Image.open('media/'+str(temp.cover))
 
     # initialise the drawing context with
     # the image object as background
@@ -17,7 +22,7 @@ def test(request):
 
     # starting position of the message
 
-    (x, y) = (400, 400)
+    (x, y) = (temp.x, temp.y)
     message = "Happy Birthday!"
     color = 'rgb(0, 0, 0)'  # black color
 
