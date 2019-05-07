@@ -1,1 +1,6 @@
 <img src="{{ src }}" height="400px" width="600px" />
+<form method="POST">
+  {% csrf_token %}
+  <!-- <button type="submit">Download</button> -->
+  <a href="{{ src }}" download>Download</a>
+</form>

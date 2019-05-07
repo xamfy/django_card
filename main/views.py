@@ -5,7 +5,7 @@ from django.views.generic import ListView, DetailView
 # 3rd party libraries
 from PIL import Image, ImageDraw, ImageFont
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 
 from .models import Pic, Category
 
@@ -13,6 +13,10 @@ import secrets
 import string
 
 from main import forms
+
+from wsgiref.util import FileWrapper
+from django_card import settings
+import mimetypes
 
 
 class HomePageView(ListView):
@@ -73,6 +77,7 @@ def edit(request, pic):
 def generate(request, pic):
     pic = '/media/generated/'+pic+'.jpg'
     return render(request, "generated.html", {'src': pic})
+
     # print(name)
     # print(temp.cover)
 
