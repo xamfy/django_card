@@ -28,36 +28,41 @@ class CategoryView(DetailView):
         return context
 
 
-def test(request):
+def edit(request, pic):
 
-    temp = Pic.objects.all().first()
-    print(temp.cover)
+    image = Pic.objects.filter(id=pic).first()
+    return render(request, "edit.html", {'image': image})
+
+
+def generate(request):
+    pass
+    # print(temp.cover)
 
     # create Image object with the input image
-    image = Image.open('media/'+str(temp.cover))
+    # image = Image.open('media/'+str(temp.cover))
 
     # initialise the drawing context with
     # the image object as background
 
-    draw = ImageDraw.Draw(image)
+    # draw = ImageDraw.Draw(image)
 
-    font = ImageFont.truetype('main/static/fonts/Roboto-Bold.ttf', size=45)
+    # font = ImageFont.truetype('main/static/fonts/Roboto-Bold.ttf', size=45)
 
     # starting position of the message
 
-    (x, y) = (temp.x, temp.y)
-    message = "Happy Birthday!"
-    color = 'rgb(0, 0, 0)'  # black color
+    # (x, y) = (temp.x, temp.y)
+    # message = "Happy Birthday!"
+    # color = 'rgb(0, 0, 0)'  # black color
 
     # draw the message on the background
 
-    draw.text((x, y), message, fill=color, font=font)
-    (x, y) = (150, 150)
-    name = 'asdfsdfsd'
-    color = 'rgb(255, 255, 255)'  # white color
-    draw.text((x, y), name, fill=color, font=font)
-    # image.show()
+    # draw.text((x, y), message, fill=color, font=font)
+    # image.save('greeting_card.png')
+
+    # (x, y) = (150, 150)
+    # name = 'asdfsdfsd'
+    # color = 'rgb(255, 255, 255)'  # white color
+    # draw.text((x, y), name, fill=color, font=font)
+    # # image.show()
 
     # save the edited image
-
-    image.save('greeting_card.png')
