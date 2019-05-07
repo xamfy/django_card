@@ -14,10 +14,6 @@ import string
 
 from main import forms
 
-from wsgiref.util import FileWrapper
-from django_card import settings
-import mimetypes
-
 
 class HomePageView(ListView):
     template_name = "home.html"
