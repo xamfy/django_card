@@ -73,6 +73,12 @@
       </div>
     </nav>
 
+    <div class="container">
+    {% for category in categories %}
+    <p><a href="{% url 'category-detail' category.pk%}">{{ category.name }}</a></p>
+    {%  endfor %}
+    </div>
+
     <div class="container site-img">
       <div class="row">
         <div class="col-6">

@@ -1,8 +1,31 @@
 from django.shortcuts import render
-from PIL import Image, ImageDraw, ImageFont
-# Create your views here.
+from django.views.generic.base import TemplateView
+from django.views.generic import ListView, DetailView
 
-from .models import Pic
+# 3rd party libraries
+from PIL import Image, ImageDraw, ImageFont
+
+from .models import Pic, Category
+
+
+class HomePageView(ListView):
+    template_name = "home.html"
+    model = Category
+    context_object_name = 'categories'
+    queryset = Category.objects.all()
+
+
+class CategoryView(DetailView):
+    template_name = "category.html"
+    model = Category
+    # context_object_name = 'images'
+    # queryset = Category.images.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        images = self.object.images.all()
+        context['images'] = images
+        return context
 
 
 def test(request):

@@ -24,9 +24,11 @@ class Pic(models.Model):
 
     name = models.CharField(max_length=100)
     cover = models.ImageField(upload_to='images/')
+    blank = models.ImageField(upload_to='images/blanks/')
 
     category = models.ForeignKey(
         Category,
+        related_name='images',
         on_delete=models.DO_NOTHING,
     )
     x = models.IntegerField(default=0)
