@@ -1,5 +1,11 @@
 {% for image in images%}
+<p>{{ image.name }}</p>
+<p>{{ image.description }}</p>
 <a href="{% url 'edit' pic=image.id %}"
-  ><img src="{{ image.cover.url }}" height="400px" width="600px"
+  ><img
+    src="{{ image.cover.url }}"
+    height="400px"
+    width="600px"
+    alt="{{ image.alt_text }}"
 /></a>
 {% endfor %}

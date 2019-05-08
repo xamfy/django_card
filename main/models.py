@@ -42,5 +42,8 @@ class Pic(models.Model):
     size = models.IntegerField(default=10)
     color = ColorField(default='#FF0000')
 
+    alt_text = models.CharField(max_length=100)
+    description = models.TextField()
+
     def __str__(self):
         return self.name
