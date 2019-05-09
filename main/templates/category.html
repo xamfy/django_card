@@ -1,11 +1,35 @@
-{% for image in images%}
-<p>{{ image.name }}</p>
-<p>{{ image.description }}</p>
-<a href="{% url 'edit' pic=image.id %}"
-  ><img
-    src="{{ image.cover.url }}"
-    height="400px"
-    width="600px"
-    alt="{{ image.alt_text }}"
-/></a>
-{% endfor %}
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    {% for image in images%}
+    <!-- <p>{{ image.name }}</p>
+  <p>{{ image.description }}</p>
+  <a href="{% url 'edit' pic=image.id %}"
+    ><img
+      src="{{ image.cover.url }}"
+      height="400px"
+      width="600px"
+      alt="{{ image.alt_text }}"
+  /></a> -->
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card">
+        <img
+          class="card-img-top img-fluid"
+          src="{{ image.cover.url }}"
+          alt="{{ image.alt_text }}"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{ image.name }}</h4>
+          <p class="card-text">
+            {{ image.description }}
+          </p>
+          <a href="category/{{ category.id }}" class="btn btn-primary"
+            >Generate</a
+          >
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

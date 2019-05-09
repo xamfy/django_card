@@ -1,9 +1,15 @@
-<img src="{{ image.cover.url }}" height="400px" width="600px" />
-<br />
-<form action="" method="post">
-  {% csrf_token %}
-  <table>
-    {{form.as_table}}
-  </table>
-  <input type="submit" value="Submit" />
-</form>
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <img src="{{ image.cover.url }}" height="400px" width="600px" />
+  <br />
+	<br />
+  <form action="" method="post">
+    {% csrf_token %}
+    <table>
+      {{form.as_table}}
+    </table>
+		<br />
+    <button type="submit" class="btn btn-success">Generate</button>
+  </form>
+</div>
+{% endblock %}

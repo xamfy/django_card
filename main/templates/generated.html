@@ -1,6 +1,16 @@
-<img src="{{ src }}" height="400px" width="600px" />
-<form method="POST">
-  {% csrf_token %}
-  <!-- <button type="submit">Download</button> -->
-  <a href="{{ src }}" download>Download</a>
-</form>
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <img src="{{ src }}" height="400px" width="600px" />
+  <form method="POST">
+    {% csrf_token %}
+    <!-- <button type="submit">Download</button> -->
+    <!-- <button class="btn btn-success" download></button> -->
+    <br />
+    <button class="btn btn-success">
+      <a href="{{ src }}" style="color:white" download>Download</a>
+    </button>
+    <br />
+    <!-- <a href="{{ src }}" download> <i class="fa fa-download"></i> Download </a> -->
+  </form>
+</div>
+{% endblock %}
