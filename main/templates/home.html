@@ -1,185 +1,40 @@
+{% extends 'base.html' %} {% block content %}
+<div class="bg-overlay text-center">
+  <!-- <div class="heading">Create greeting cards free online</div> -->
+  <h1 class="heading">
+    <strong>Create</strong>
+    <strong>greeting cards</strong>
+    free online
+  </h1>
+</div>
+<br />
+<div class="container">
+  <h4>Categories</h4>
 
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{% static 'main/style.css' %}" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat:400,600"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
-      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-      crossorigin="anonymous"
-    />
-
-    <title>XYZ.com</title>
-  </head>
-  <body>
-    <nav class="mynavbar navbar navbar-expand-lg navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="#" style="padding-left:5px">XYZ.com</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <!-- <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Products <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#services">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li> -->
-            {% if not request.user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'login' %}">Sign in</a>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
-            </li>
-            {% endif %}
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <br>
-    <div class="container">
-    <h4>Categories</h4>
-
+  <div class="row">
     {% for category in categories %}
-    <p><a href="{% url 'category-detail' category.pk%}">{{ category.name }}</a></p>
-    {%  endfor %}
-    </div>
-
-    <!-- <div class="container site-img">
-      <div class="row">
-        <div class="col-6">
-          <img src="{% static 'main/site.svg' %}" alt="site" height="400px" />
-        </div>
-        <div class="col-1"></div>
-        <div class="col-5">
-          <h1 class="heading">
-            <strong>Websites</strong> and<br />
-            <strong>Mobile apps</strong><br />
-            for your business
-          </h1>
-          <p>
-            <a href="#" class="btn-demo">Contact</a>
-            <a href="#" class="btn-basic">Request Callback</a>
+    <div class="col-md-6 col-lg-4 col-xl-3">
+      <div class="card">
+        <img
+          class="card-img-top img-fluid"
+          src="https://images.unsplash.com/photo-1533864584121-714289e0e746?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h4 class="card-title">{{ category.name }}</h4>
+          <p class="card-text">
+            This is a longer card with supporting text below as a natural
+            lead-in to additional content. This content is a little bit longer.
           </p>
+          <a href="category/{{ category.id }}" class="btn btn-primary"
+            >Generate</a
+          >
         </div>
       </div>
-    </div> -->
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
 
-    <!-- <div class="container site-img">
-      <div class="row">
-        <div class="col-5">
-          <h1 class="heading">
-            Focus on your <strong>business</strong> and leave rest to us
-          </h1>
-        </div>
-        <div class="col-1"></div>
-        <div class="col-6">
-          <img src="{% static 'main/business.svg' %}" alt="site" height="400px" />
-        </div>
-      </div>
-    </div> -->
-
-    <div class="container pricing">
-
-            
-    <!-- <footer class="footer">
-      <div class="container">
-        <div class="row copy-row">
-          <span>&copy; xamfy 2019</span>
-          <a href="#">About</a>
-          <a href="#">Career</a>
-          <a href="#">Team</a>
-        </div>
-      </div>
-    </footer> -->
-    
-    <!-- <footer class="pt-4 my-md-5 pt-md-5 border-top">
-            <div class="row">
-              <div class="col-12 col-md">
-                <h3>xamfy</h3>
-                <small class="d-block mb-3 text-muted">&copy; 2019</small>
-              </div>
-              <div class="col-6 col-md">
-                <h5 id="services">Services</h5>
-                <ul class="list-unstyled text-small">
-                  <li><a class="text-muted" href="#">Websites</a></li>
-                  <li><a class="text-muted" href="#">Workshops</a></li>
-                </ul>
-              </div>
-              <div class="col-6 col-md">
-                <h5>Products</h5>
-                <ul class="list-unstyled text-small">
-                  <li><a class="text-muted" href="#">Automate</a></li>
-                  <li><a class="text-muted" href="#">E-commerce website</a></li>
-                </ul>
-              </div>
-              <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                  <li><a class="text-muted" href="#">Team</a></li>
-                  <li><a class="text-muted" href="#">Locations</a></li>
-                </ul>
-              </div>
-            </div>
-          </footer> -->
-
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
-    <script>
-        // TweenMax.set(".site-img", { opacity: 0 });
-
-        // TweenMax.to(".site-img", 3, { opacity: 1 });
-    </script>
-  </body>
-</html>
+<!--  -->

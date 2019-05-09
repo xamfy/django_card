@@ -1,6 +1,21 @@
-<img src="{{ src }}" height="400px" width="600px" />
-<form method="POST">
-  {% csrf_token %}
-  <!-- <button type="submit">Download</button> -->
-  <a href="{{ src }}" download>Download</a>
-</form>
+{% extends 'base.html' %} {% load social_share %} {% block content %}
+<div class="container">
+  <img src="{{ src }}" height="400px" width="600px" />
+  <form method="POST">
+    {% csrf_token %}
+    <!-- <button type="submit">Download</button> -->
+    <!-- <button class="btn btn-success" download></button> -->
+    <br />
+    <button class="btn btn-success">
+      <a href="{{ src }}" style="color:white" download>Download</a>
+    </button>
+    <br />
+
+    <!-- <a href="{% post_to_facebook request.path %}" title="Facebook"
+      ><i class="fa fa-facebook"></i
+    ></a> -->
+
+    <!-- <a href="{{ src }}" download> <i class="fa fa-download"></i> Download </a> -->
+  </form>
+</div>
+{% endblock %}

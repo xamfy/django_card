@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'accounts',
-    'colorfield'
+    'colorfield',
+    'django_social_share',
 ]
 
 MIDDLEWARE = [
